@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Number5.MainPage"
+             Title="Перелік товарів">
+
+    <VerticalStackLayout Padding="10">
+        <Grid x:Name="ProductsGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Перелік товарів" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <CollectionView Grid.Row="1" x:Name="ProductCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" Grid.Column="0" />
+                            <Label Text="{Binding Price}" Grid.Column="1" />
+                            <Label Text="{Binding Description}" Grid.Column="2" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <HorizontalStackLayout>
+            <Button Text="Додати товар" Clicked="OnAddProductClicked" />
+            <Button Text="Видалити товар" Clicked="OnDeleteProductClicked" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
